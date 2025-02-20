@@ -1,0 +1,180 @@
+---
+title: QGIS Plugin
+description: Learn how to use the MapHub QGIS Plugin to seamlessly integrate MapHub with QGIS
+order: 4
+---
+
+# Maphub QGIS Plugin
+
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Setup](#setup)
+  - [Installation](#installation)
+  - [Configuration](#configuration)
+- [Using the Plugin](#using-the-plugin)
+  - [Viewing and Downloading Maps](#viewing-and-downloading-maps)
+  - [Uploading Maps](#uploading-maps)
+- [Troubleshooting](#troubleshooting)
+- [Next Steps](#next-steps)
+
+## Introduction
+
+The MapHub QGIS Plugin provides seamless integration between QGIS and the MapHub platform, enabling you to work with your geospatial data across both environments. This plugin bridges the gap between MapHub's cloud-based platform and QGIS's powerful desktop analysis capabilities.
+
+<Highlight>
+  <strong>Key Benefits:</strong> With the MapHub QGIS Plugin, you can view,
+  edit, download, and upload geospatial maps directly within QGIS, streamlining
+  your GIS workflow.
+</Highlight>
+
+<video
+  title="Demonstration of the QGIS plugin"
+  src="/videos/home/qgis-plugin.webm"
+  className="rounded-md mx-auto my-6"
+  width="100%"
+  controls
+>
+  Your browser does not support the video tag.
+</video>
+
+## Setup
+
+### Installation
+
+Installing the MapHub QGIS Plugin is straightforward through the QGIS Plugin Manager:
+
+1. Open QGIS on your computer
+2. Navigate to **Plugins > Manage and Install Plugins**
+3. In the search bar, type **MapHub**
+4. Click on the MapHub plugin in the results
+5. Click the **Install** button
+
+Once installed, you'll see the MapHub icon in your QGIS toolbar or in the Plugins menu, indicating that the plugin is ready to use.
+
+### Configuration
+
+Before using the plugin, you need to configure it with your MapHub API key:
+
+1. [Generate a API key](/settings/api-keys) on the website
+2. Go back to QGIs and select **Plugins > MapHub > Set API Key**
+3. Enter your MapHub API key that your created on the website
+4. Click **Save** to store your API key
+
+## Using the Plugin
+
+### Viewing and Downloading Maps
+
+You can view and download your own and public MapHub maps directly in QGIS:
+
+1. Navigate to **Plugins > MapHub > Get Map from MapHub**
+2. Browse through the maps in your projects or the public maps
+3. To visualize a Map in QGIS do either of the following:
+
+   - Click one the **Download** button next to a Map to download it and open it in QGIS
+   - Click on **Tiling Service** to stream it into QGIS via tiling, much faster specifically for large datasets.
+
+4. In either case, the map will be added to your QGIS canvas as a layer
+
+When selecting **Tiling Service**, the plugin uses MapHub's tiling service to display maps quickly, even for large datasets. This is particularly useful for getting a quick overview of your data before deciding to download it for editing.
+
+<table className="w-full my-4 border-collapse">
+  <thead>
+    <tr>
+      <th className="border px-4 py-2 text-left">Map Type</th>
+      <th className="border px-4 py-2 text-left">Viewing Method</th>
+      <th className="border px-4 py-2 text-left">Performance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td className="border px-4 py-2">Vector</td>
+      <td className="border px-4 py-2">Vector Tiles</td>
+      <td className="border px-4 py-2">Fast, even for large datasets</td>
+    </tr>
+    <tr>
+      <td className="border px-4 py-2">Raster</td>
+      <td className="border px-4 py-2">XYZ Tiles</td>
+      <td className="border px-4 py-2">
+        Fast, preserves visualization settings
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Uploading Maps
+
+After creating or editing maps in QGIS, you can upload them to MapHub:
+
+1. Navigate to **Plugins > MapHub > Upload to MapHub**
+2. Select the QGIS layer you want to upload
+3. Define name for the Map
+4. Choose a destination project (or create a new one)
+5. Set visibility options (public or private)
+6. Click **Ok** to start the process
+
+The plugin will convert your QGIS layer to a format compatible with MapHub and upload it to your account.
+
+<Highlight>
+  <strong>Note:</strong> Large datasets may take some time to upload depending
+  on your internet connection speed.
+</Highlight>
+
+## Troubleshooting
+
+If you encounter issues with the MapHub QGIS Plugin, try these common solutions:
+
+<table className="w-full my-4 border-collapse">
+  <thead>
+    <tr>
+      <th className="border px-4 py-2 text-left">Issue</th>
+      <th className="border px-4 py-2 text-left">Possible Solution</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td className="border px-4 py-2">
+        Plugin doesn't appear after installation
+      </td>
+      <td className="border px-4 py-2">
+        Restart QGIS and check if the plugin is enabled in the Plugin Manager
+      </td>
+    </tr>
+    <tr>
+      <td className="border px-4 py-2">Cannot connect to MapHub</td>
+      <td className="border px-4 py-2">
+        Verify your API key and internet connection
+      </td>
+    </tr>
+    <tr>
+      <td className="border px-4 py-2">Maps fail to load</td>
+      <td className="border px-4 py-2">
+        Check your internet connection or try viewing the map on the MapHub
+        website
+      </td>
+    </tr>
+    <tr>
+      <td className="border px-4 py-2">Upload fails</td>
+      <td className="border px-4 py-2">
+        Make sure the layer is saved to your local disk and is not just a
+        virtual layer.
+      </td>
+    </tr>
+    <tr>
+      <td className="border px-4 py-2">Plugin crashes</td>
+      <td className="border px-4 py-2">
+        Update to the latest version of the plugin and QGIS
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+If problems persist, please [contact us](/contact).
+
+## Next Steps
+
+Now that you're familiar with the MapHub QGIS Plugin, you might want to explore:
+
+- [Visualization options](/docs/visualization) to create compelling maps
+- [Sharing capabilities](/docs/sharing-maps) to collaborate with others
+- [Join our community](https://discord.gg/ufqVjqpVGw) to share your experiences and get tips from other users

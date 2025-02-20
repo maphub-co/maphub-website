@@ -1,0 +1,100 @@
+---
+title: Visualization
+description: Customize how your Maps look.
+order: 3
+---
+
+# Visualization
+
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Raster Data Visualization](#raster-data-visualization)
+  - [Default Colormap Behavior](#default-colormap-behavior)
+  - [Customizing Raster Colormaps](#customizing-raster-colormaps)
+  - [External Applications](#external-applications)
+- [Vector Data Visualization](#vector-data-visualization)
+  - [Property-Based Coloring](#property-based-coloring)
+  - [Limitations with External Applications](#limitations-with-external-applications)
+
+## Introduction
+
+MapHub provides powerful visualization options that allow you to customize how your geospatial data is displayed. This guide explains how to adjust colormaps for both raster and vector data to create more meaningful and visually appealing maps.
+
+## Raster Data Visualization
+
+Raster data consists of a grid of cells where each cell contains a value representing information such as elevation, temperature, or satellite imagery.
+
+### Default Colormap Behavior
+
+When you upload a raster dataset to MapHub, the system automatically creates a default colormap based on the following rules:
+
+- **RGB Images**: If your raster has exactly three bands, MapHub assumes it's an RGB image and displays it accordingly with natural colors.
+- **Other Rasters**: For all other rasters (single-band or multi-band), the colormap is applied to the first channel/band of the raster.
+
+### Customizing Raster Colormaps
+
+You can customize how your raster data is visualized by adjusting the colormap settings:
+
+1. Navigate to your raster map in MapHub
+2. In the visualization panel, you can set:
+   - **Min Value**: The lower bound of your data range
+   - **Max Value**: The upper bound of your data range
+   - **Color Scheme**: The palette used to represent values between min and max
+3. Click the "Apply" button to update the visualization
+
+{/* TODO: add Video about Raster colormaps */}
+
+The colormap transforms the numerical values in your raster into colors, making patterns and variations in your data more visible and interpretable.
+
+### External Applications
+
+An important feature of MapHub's raster visualization is that the colormap settings are incorporated into the tiling URL. This means:
+
+- The custom visualization will be visible when accessing the data through the tiling URL
+- If you update the colormap in MapHub, you'll need to update the URL in external applications to see the changes
+- External GIS software and web maps can display your customized visualization when using the current tiling URL
+
+## Vector Data Visualization
+
+Vector data represents geographic features as points, lines, or polygons, each with associated attribute data.
+
+### Property-Based Coloring
+
+MapHub allows you to visualize vector data based on the properties (attributes) associated with each geometry:
+
+1. Go to your Datasets page and select a vector map
+2. In the visualization settings, you can:
+   - Choose which property to use for coloring
+   - Select a color scheme that best represents your data
+   - Adjust the range and step size if needed
+
+<div className="my-8 2xl:my-16">
+  <video
+    title="Demonstration of applying a vector colormap"
+    src="/videos/docs/vector_colormap.webm"
+    className="object-fit w-full h-auto rounded-sm"
+    controls
+  >
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+This feature is particularly useful for thematic mapping, where you want to show how a particular attribute (like population, income, or environmental measurements) varies across different areas.
+
+### Limitations with External Applications
+
+**Important Note**: Unlike raster data, the property-based visualization for vector data currently only works within MapHub's interface. External software or applications using the tiling URL will receive the geometries but not the custom visualization settings.
+
+If you need to use the styled vector data in external applications, consider:
+
+- Creating a styled version in your external GIS software
+- Checking back for updates as we continue to improve this functionality
+
+## Next Steps
+
+Now that you understand how to customize visualizations in MapHub, you might want to explore:
+
+- [Sharing and embedding](/docs/sharing-maps) your beautifully styled maps
+- [Getting started with the QGIS plugin](/docs/qgis-plugin) for advanced GIS workflows
+- [Using the QGIS plugin](/docs/qgis-plugin) for more advanced styling options

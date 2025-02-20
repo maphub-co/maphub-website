@@ -1,0 +1,13 @@
+.mapboxgl-ctrl-icon.projection-toggle-globe {
+  background-image: url("/images/icons/globe.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 64%;
+}
+
+.mapboxgl-ctrl-icon.projection-toggle-map {
+  background-image: url("/images/icons/map.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 64%;
+}

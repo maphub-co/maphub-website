@@ -1,0 +1,61 @@
+{
+  "extends": ["next/core-web-vitals", "plugin:@typescript-eslint/recommended"],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "rules": {
+    "@typescript-eslint/naming-convention": [
+      "warn",
+      /*======== TYPESCRIPT ========*/
+      {
+        "selector": "variable",
+        "format": ["snake_case"]
+      },
+      {
+        "selector": "function",
+        "format": ["snake_case"]
+      },
+      {
+        "selector": "class",
+        "format": ["PascalCase"]
+      },
+      {
+        "selector": "typeLike",
+        "format": ["PascalCase"]
+      },
+      /*=========== REACT ===========*/
+      /*------- COMPONENTS -------*/
+      {
+        "selector": "variable",
+        "types": ["function"],
+        "format": ["PascalCase"],
+        "filter": {
+          "regex": "^[A-Z]",
+          "match": true
+        }
+      },
+      /*------- HOOKS -------*/
+      {
+        "selector": "variable",
+        "modifiers": ["const"],
+        "format": ["camelCase"],
+        "filter": {
+          "regex": "^use[A-Z]",
+          "match": true
+        }
+      },
+      {
+        "selector": "function",
+        "format": ["camelCase"],
+        "filter": {
+          "regex": "^use[A-Z]",
+          "match": true
+        }
+      }
+    ]
+  }
+}

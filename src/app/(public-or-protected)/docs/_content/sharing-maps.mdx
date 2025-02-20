@@ -1,0 +1,155 @@
+---
+title: Sharing Maps
+description: Learn how to explore the Hub and create your first map on MapHub
+order: 2
+---
+
+# Sharing Maps
+
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Sharing Options](#sharing-options)
+  - [Direct URL Sharing](#direct-url-sharing)
+  - [Tiling URL for External Applications](#tiling-url-for-external-applications)
+  - [Direct Website Embedding](#direct-website-embedding)
+  - [QGIS Plugin Integration](#qgis-plugin-integration)
+- [Upcoming Features](#upcoming-features)
+- [Next Steps](#next-steps)
+
+## Introduction
+
+One of MapHub's most powerful features is the ability to easily share your maps with others. Whether you want to share with colleagues, embed in a website, or use in external GIS applications, MapHub provides several options to make your geospatial data accessible and useful.
+
+## Sharing Options
+
+### Direct URL Sharing
+
+The simplest way to share your map is by sharing its URL:
+
+1. Navigate to the map you want to share
+2. (Optional) Expand the map preview to Fullscreen
+3. Copy the URL from your browser's address bar
+4. Share this link via email, messaging, or social media
+
+When recipients open this link, they'll see the map exactly as you've configured it, including any custom visualizations you've applied.
+
+### Tiling URL for External Applications
+
+For more advanced use cases, MapHub provides tiling URLs that allow you to integrate your maps into external applications:
+
+1. Go to your map's page
+2. Copy the "Tiler URL" in the Exports section
+
+This tiling URL follows standard protocols and can be used in:
+
+- Web mapping libraries like Leaflet, Mapbox GL, or OpenLayers
+- Desktop GIS software such as QGIS or ArcGIS
+- Custom applications that support standard tile services
+
+<table className="w-full my-4 border-collapse">
+  <thead>
+    <tr>
+      <th className="border px-4 py-2 text-left">Map Type</th>
+      <th className="border px-4 py-2 text-left">Tiling Format</th>
+      <th className="border px-4 py-2 text-left">Visualization Support</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td className="border px-4 py-2">Raster</td>
+      <td className="border px-4 py-2">XYZ Tiles</td>
+      <td className="border px-4 py-2">Custom colormaps included in URL</td>
+    </tr>
+    <tr>
+      <td className="border px-4 py-2">Vector</td>
+      <td className="border px-4 py-2">Vector Tiles</td>
+      <td className="border px-4 py-2">
+        Geometry and properties (styling not included)
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+Here an example, showing how to use the tiler URL in QGIS:
+
+<div className="my-8 2xl:my-16">
+  <video
+    title="Demonstration of using a tiling URL in QGIS"
+    src="/videos/docs/tiling_url.webm"
+    className="object-fit w-full h-auto rounded-sm"
+    controls
+  >
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+**Important Note**: For raster data, any custom colormap settings you've applied in MapHub will be incorporated into the tiling URL. However, for vector data, external applications will receive the geometries but not the custom visualization settings.
+
+### Direct Website Embedding
+
+MapHub allows you to embed your maps directly into your websites, blogs, or any HTML page using a simple iframe code:
+
+1. Navigate to the map you want to embed
+2. In the "Exports" section on the right side, find the "Embed this map" option
+3. Copy the provided iframe code
+4. Paste the code into your website's HTML
+
+The embedded map will display with a clean interface, showing only the map content and essential controls. Here's how to get the embed code:
+
+```html
+<iframe
+  src="https://www.maphub.co/map/YOUR_MAP_ID?viewer=true&embed=true"
+  width="800"
+  height="600"
+  title="MapHub Embedded Map"
+>
+</iframe>
+```
+
+You can customize the width, height, and title attributes to fit your website's design. The embedded map includes:
+
+- Interactive pan and zoom controls
+- A small MapHub attribution that links back to the original map
+- All the custom styling and visualizations you've applied to your map
+
+Here's an example of an embedded map:
+
+<iframe
+  className="my-8"
+  src="https://www.maphub.co/map/3db9f2ae-6380-4e5b-bae8-230e6d236917?viewer=true&embed=true"
+  width="100%"
+  height="600"
+  title="Elevation Sicily 30m"
+/>
+
+#### QGIS Plugin Integration
+
+MapHub offers a dedicated QGIS plugin that simplifies the process of importing your maps into QGIS:
+
+The plugin automatically handles the connection to MapHub, eliminating the need to manually copy and paste tiling URLs. This provides a seamless workflow between MapHub and QGIS.
+
+Read more about the [QGIS plugin here](/docs/qgis-plugin).
+
+## Upcoming Features
+
+We're constantly working to improve MapHub's sharing capabilities. Here are some exciting features coming soon:
+
+### Frontend Templates
+
+We're developing ready-to-use frontend templates that will enable you to quickly build custom MapHub integrations. These templates will:
+
+- Provide starting points for web developers
+- Include examples for common use cases
+- Support various frameworks and libraries
+- Accelerate development of custom mapping applications
+
+Stay tuned for announcements about these features on our blog and social media channels.
+
+## Next Steps
+
+Now that you understand how to share your maps, you might want to explore:
+
+- [Visualization options](/docs/visualization) to create more compelling maps
+- [Getting started with the QGIS plugin](/docs/qgis-plugin) for advanced GIS workflows
+- [Join our community](https://discord.gg/ufqVjqpVGw) to share your maps and get feedback

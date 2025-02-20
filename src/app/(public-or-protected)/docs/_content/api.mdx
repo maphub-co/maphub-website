@@ -1,0 +1,218 @@
+---
+title: API
+description: Learn how to use the MapHub API to programmatically interact with your maps
+order: 5
+---
+
+# MapHub API
+
+## Table of Contents
+
+- [Introduction](#introduction)
+- [API Documentation](#api-documentation)
+- [Python API Wrapper](#python-api-wrapper)
+- [Command Line Interface (CLI)](#command-line-interface-cli)
+- [Authentication](#authentication)
+- [Common Use Cases](#common-use-cases)
+- [Troubleshooting](#troubleshooting)
+- [Next Steps](#next-steps)
+
+## Introduction
+
+The MapHub API allows you to programmatically interact with your maps and data. With the API, you can:
+
+- Upload and download maps
+- Manage folders and workspaces
+- Query map metadata and statistics
+- Access tiled map data
+- Automate workflows
+
+<Highlight>
+  <strong>Key Benefits:</strong> The MapHub API enables seamless integration
+  with your existing tools and workflows, allowing you to automate processes and
+  build custom applications on top of MapHub's infrastructure.
+</Highlight>
+
+Whether you're building a custom application, integrating MapHub into your existing tools, or automating repetitive tasks, the API provides a powerful interface to MapHub's functionality.
+
+{/* MEDIA PLACEHOLDER: Add a diagram showing the relationship between the API, the MapHub platform, and client applications */}
+
+## API Documentation
+
+The MapHub API is fully documented using OpenAPI (Swagger) specification. You can explore the interactive API documentation at:
+
+- Standard UI: [/docs](https://api-main-432878571563.europe-west4.run.app/docs)
+
+The documentation provides detailed information about each endpoint, including:
+
+- Required parameters
+- Request and response formats
+- Authentication requirements
+- Example requests and responses
+
+{/* MEDIA PLACEHOLDER: Add a screenshot of the Swagger UI documentation */}
+
+## Python API Wrapper
+
+For Python developers, we offer a Python API wrapper that simplifies interaction with the MapHub API.
+
+<Highlight>
+  <strong>Important:</strong> The Python API wrapper is currently in an early
+  state of development and only supports a limited number of endpoints. We're
+  actively working on expanding its capabilities.
+</Highlight>
+
+To install the python library simply run: `pip install maphub`
+
+```python
+# Example of using the Python API wrapper
+from maphub import MapHubClient
+
+# Create the authorized client
+client = MapHubClient(api_key="your-api-key")
+
+# Create an example project
+example_project = client.create_project("Example Project")
+
+# Upload some GIS data to MapHub
+client.upload_map(
+    map_name="Example Map",
+    project_id=example_project['id'],
+    public=False,
+    path="path/to/GIS/data.gpkg"
+)
+```
+
+We're actively working on expanding the wrapper's capabilities. Check our [GitHub repository](https://github.com/maphub-co/maphub-python) for the latest updates and documentation.
+
+{/* MEDIA PLACEHOLDER: Add a code example screenshot or diagram showing the wrapper architecture */}
+
+## Command Line Interface (CLI)
+
+The MapHub CLI provides a command-line interface for interacting with the MapHub API. It allows you to authenticate with an API key and upload maps to your folders.
+
+<Highlight>
+  <strong>Installation:</strong> The CLI is included in the Python package.
+  Install it with: `pip install maphub`
+</Highlight>
+
+### Authentication
+
+Before using the CLI, you need to authenticate with your MapHub API key:
+
+```sh
+maphub auth YOUR_API_KEY
+```
+
+This will save your API key to `~/.maphub/config.json` for future use.
+
+### Uploading Maps
+
+To upload a GIS file to your root folder:
+
+```sh
+maphub upload path/to/your/file.gpkg
+```
+
+To upload a GIS file to a specific folder:
+
+```sh
+maphub upload path/to/your/file.gpkg --folder-id YOUR_FOLDER_ID
+```
+
+If you don't specify a folder ID, the map will be uploaded to your root folder.
+
+To upload a GIS file with a custom map name:
+
+```sh
+maphub upload path/to/your/file.gpkg --map-name "My Custom Map Name"
+```
+
+If you don't specify a map name, it will be extracted from the file name (without extension).
+
+## Authentication
+
+The MapHub API uses an **API Key** as authentication method.
+
+You can generate and manage API keys in your [account section](/settings/api-keys).
+
+## Common Use Cases
+
+Here are some common use cases for the MapHub API:
+
+### Automated Map Processing
+
+Set up automated workflows to process and update maps on a schedule:
+
+1. Download the latest data from your source
+2. Process and transform the data
+3. Upload the updated map to MapHub
+
+### Custom Applications
+
+Build custom applications that leverage MapHub's infrastructure:
+
+1. Use the API to manage maps and folders
+2. Embed maps in your application using our embedding features
+3. Implement custom visualization and analysis tools
+
+### Data Integration
+
+Integrate MapHub with your existing data systems:
+
+1. Sync data between your database and MapHub
+2. Trigger map updates when your data changes
+3. Pull map metadata into your reporting systems
+
+## Troubleshooting
+
+If you encounter issues when using the MapHub API, try these common solutions:
+
+<table className="w-full my-4 border-collapse">
+  <thead>
+    <tr>
+      <th className="border px-4 py-2 text-left">Issue</th>
+      <th className="border px-4 py-2 text-left">Possible Solution</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td className="border px-4 py-2">Authentication failures</td>
+      <td className="border px-4 py-2">
+        Verify your API key is valid and has not expired
+      </td>
+    </tr>
+    <tr>
+      <td className="border px-4 py-2">Unexpected response format</td>
+      <td className="border px-4 py-2">
+        Check the API documentation for the expected request and response
+        formats
+      </td>
+    </tr>
+    <tr>
+      <td className="border px-4 py-2">Timeout errors</td>
+      <td className="border px-4 py-2">
+        For large file uploads or downloads, increase your client timeout
+        settings
+      </td>
+    </tr>
+    <tr>
+      <td className="border px-4 py-2">Python wrapper errors</td>
+      <td className="border px-4 py-2">
+        Ensure you're using the latest version of the wrapper and check the
+        GitHub repository for known issues
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+If problems persist, please [contact us](https://maphub.dev/contact) with details about the issue, including any error messages and the API endpoint you're trying to access.
+
+## Next Steps
+
+Now that you're familiar with the MapHub API, you might want to explore:
+
+- [Getting started](/docs/getting-started) with MapHub if you're new to the platform
+- [Visualization options](/docs/visualization) to create compelling maps
+- [QGIS plugin](/docs/qgis-plugin) for desktop integration
+- [Join our Discord community](https://discord.gg/ufqVjqpVGw) to connect with other developers using the API

@@ -1,0 +1,53 @@
+{
+  "rules": {
+    "tabSize": 2,
+    "useTabs": false,
+    "trimTrailingWhitespace": true,
+    "insertFinalNewline": true,
+    "ignore": [
+      ".next",
+      "node_modules",
+      "dist",
+      "build",
+      ".git"
+    ],
+    "namingConventions": {
+      "typescript": {
+        "variables": {
+          "pattern": "^[a-z][a-z0-9_]*$",
+          "message": "Variables should use snake_case"
+        },
+        "functions": {
+          "pattern": "^[a-z][a-z0-9_]*$",
+          "message": "Functions should use snake_case"
+        },
+        "classes": {
+          "pattern": "^[A-Z][a-zA-Z0-9]*$",
+          "message": "Classes should use PascalCase"
+        },
+        "types": {
+          "pattern": "^[A-Z][a-zA-Z0-9]*$",
+          "message": "Types should use PascalCase"
+        }
+      },
+      "react": {
+        "components": {
+          "pattern": "^[A-Z][a-zA-Z0-9]*$",
+          "message": "React components should use PascalCase"
+        },
+        "functionalComponents": {
+          "pattern": "^[A-Z][a-zA-Z0-9]*$",
+          "message": "Functional components should use PascalCase"
+        },
+        "variablesComponents": {
+          "pattern": "^[A-Z][a-zA-Z0-9]*$",
+          "message": "Functional components should use PascalCase"
+        },
+        "hooks": {
+          "pattern": "^use[A-Z][a-zA-Z0-9]*$",
+          "message": "React hooks should start with 'use' and use camelCase"
+        }
+      }
+    }
+  }
+}
